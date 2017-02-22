@@ -33,7 +33,7 @@ exports.register = (server, options, next) => {
     };
     return githubGetContributors(githubInfo)
       .then((response) => {
-        friend.friends = response.map(({ login, avatar_url, html_url }) => (
+        friend.friends = response.data.map(({ login, avatar_url, html_url }) => (
           {name: login, img: avatar_url, profile: html_url}
         ));
         return friend;
